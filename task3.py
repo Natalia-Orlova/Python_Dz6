@@ -8,3 +8,16 @@
 # out
 # {'А': ['Алина'], 'Б': ['Бибочка'], 'И': ['Иван', 'Илья'], 
 # 'М': ['Марина', 'Мария'], 'П': ['Петр', 'Петр']}
+
+lst = ("Иван", "Мария", "Петр", "Илья", "Марина", "Петр", "Алина", "Бибочка")
+
+def create_dict(lst: list):
+    dictionary = {}
+    for word in lst:
+        dictionary[word[0]] = dictionary.setdefault(word[0], [])
+        dictionary[word[0]].append(word)
+    return dict(sorted(dictionary.items()))
+    
+result = create_dict(lst)
+print(result)
+
